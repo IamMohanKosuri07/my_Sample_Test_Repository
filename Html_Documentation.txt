@@ -1,0 +1,814 @@
+					HTML - Hyper Text Markup Language
+			
+1. Every HTML element is a member of one or more content categories — these categories group elements that share common characteristics. This is a loose 								grouping 
+
+	There are three types of content categories:
+		Main content categories, which describe common rules shared by many elements.
+		Form-related content categories, which describe rules common to form-related elements.
+		Specific content categories, which describe rare categories shared only by a few elements, sometimes only in a specific context.
+
+	Main content categories
+Metadata content
+Elements belonging to the metadata content category modify the presentation or the behavior of the rest of the document, set up links to other documents, or convey other out of band information.
+
+Elements belonging to this category are <base>, <command>, <link>, <meta>, <noscript>, <script>, <style> and <title>.
+
+Flow content
+Flow content is a broad category that encompasses most elements that can go inside the <body> element, including heading elements, sectioning elements, phrasing elements, embedding elements, interactive elements, and form-related elements. It also includes text nodes (but not those that only consist of white space characters).
+
+The flow elements are: <a>, <abbr>, <address>, <article>, <aside>, <audio>, <b>,<bdo>, <bdi>, <blockquote>, <br>, <button>, <canvas>, <cite>, <code>, <command>, <data>, <datalist>, <del>, <details>, <dfn>, <div>, <dl>, <em>, <embed>, <fieldset>, <figure>, <footer>, <form>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <header>, <hgroup>, <hr>, <i>, <iframe>, <img>, <input>, <ins>, <kbd>, <keygen>, <label>, <main>, <map>, <mark>, <math>, <menu>, <meter>, <nav>, <noscript>, <object>, <ol>, <output>, <p>, <picture>, <pre>, <progress>, <q>, <ruby>, <s>, <samp>, <script>, <section>, <select>, <small>, <span>, <strong>, <sub>, <sup>, <svg>, <table>, <template>, <textarea>, <time>, <u>, <ul>, <var>, <video>, and <wbr>.
+
+A few other elements belong to this category, but only if a specific condition is fulfilled:
+
+<area>, if it is a descendant of a <map> element
+<link>, if the itemprop attribute is present
+<meta>, if the itemprop attribute is present
+<style>, if the scoped attribute is present
+Sectioning content
+Sectioning content is a subset of flow content, and can be used everywhere flow content is expected. Elements belonging to the sectioning content model create a section in the current outline that defines the scope of <header> elements, <footer> elements, and heading content.
+
+Elements belonging to this category are <article>, <aside>, <nav>, and <section>.
+
+Do not confuse this content model with the sectioning root category, which isolates its content from the regular outline.
+
+Heading content
+Heading content is a subset of flow content, which defines the title of a section, whether marked by an explicit sectioning content element, or implicitly defined by the heading content itself. Heading content can be used everywhere flow content is expected.
+
+Elements belonging to this category are <h1>, <h2>, <h3>, <h4>, <h5>, <h6> and <hgroup>.
+
+Though likely to contain heading content, the <header> is not heading content itself.
+
+Note: The <hgroup> element is not recommended as it does not work properly with assistive technologies. It was removed from the W3C HTML specification prior to HTML 5 being finalized, but is still part of the WHATWG specification and is at least partially supported by most browsers.
+
+Phrasing content
+Phrasing content is a subset of flow content that defines the text and the markup it contains, and can be used everywhere flow content is expected. Runs of phrasing content make up paragraphs.
+
+Elements belonging to this category are <abbr>, <audio>, <b>, <bdo>, <br>, <button>, <canvas>, <cite>, <code>, <command>, <data>, <datalist>, <dfn>, <em>, <embed>, <i>, <iframe>, <img>, <input>, <kbd>, <keygen>, <label>, <mark>, <math>, <meter>, <noscript>, <object>, <output>, <picture>, <progress>, <q>, <ruby>, <samp>, <script>, <select>, <small>, <span>, <strong>, <sub>, <sup>, <svg>, <textarea>, <time>, <u>, <var>, <video>, <wbr> and plain text (not only consisting of white spaces characters).
+
+A few other elements belong to this category, but only if a specific condition is fulfilled:
+
+<a>, if it contains only phrasing content
+<area>, if it is a descendant of a <map> element
+<del>, if it contains only phrasing content
+<ins>, if it contains only phrasing content
+<link>, if the itemprop attribute is present
+<map>, if it contains only phrasing content
+<meta>, if the itemprop attribute is present
+Embedded content
+Embedded content is a subset of flow content that imports another resource or inserts content from another mark-up language or namespace into the document, and can be used everywhere flow content is expected. Elements that belong to this category include: <audio>, <canvas>, <embed>, <iframe>, <img>, <math>, <object>, <picture>, <svg>, <video>.
+
+Interactive content
+Interactive content is a subset of flow content that includes elements that are specifically designed for user interaction, and can be used everywhere flow content is expected. Elements that belong to this category include: <a>, <button>, <details>, <embed>, <iframe>, <keygen>, <label>, <select>, and <textarea>.
+Some elements belong to this category only under specific conditions:
+
+<audio>, if the controls attribute is present
+<img>, if the usemap attribute is present
+<input>, if the type attribute is not in the hidden state
+<menu>, if the type attribute is in the toolbar state
+<object>, if the usemap attribute is present
+<video>, if the controls attribute is present
+Palpable content
+Content is palpable when it's neither empty or hidden; it is content that is rendered and is substantive. Elements whose model is flow content should have at least one node which is palpable.
+
+Form-associated content
+Form-associated content is a subset of flow content comprising elements that have a form owner, exposed by a form attribute, and can be used everywhere flow content is expected. A form owner is either the containing <form> element or the element whose id is specified in the form attribute.
+
+<button>
+<fieldset>
+<input>
+<keygen>
+<label>
+<meter>
+<object>
+<output>
+<progress>
+<select>
+<textarea>
+This category contains several sub-categories:
+
+listed
+Elements that are listed in the form.elements and fieldset.elements IDL collections. Contains <button>, <fieldset>, <input>, <keygen>, <object>, <output>, <select>, and <textarea>.
+labelable
+Elements that can be associated with <label> elements. Contains <button>, <input>, <keygen>, <meter>, <output>, <progress>, <select>, and <textarea>.
+submittable
+Elements that can be used for constructing the form data set when the form is submitted. Contains <button>, <input>, <keygen>, <object>, <select>, and <textarea>.
+resettable
+Elements that can be affected when a form is reset. Contains <input>, <keygen>, <output>,<select>, and <textarea>.
+Secondary categories
+There are some secondary classifications of elements that can be useful to be aware of as well.
+
+Script-supporting elements
+Script-supporting elements are elements which don't directly contribute to the rendered output of a document. Instead, they serve to support scripts, either by containing or specifying script code directly, or by specifying data that will be used by scripts.
+
+The script-supporting elements are:
+
+<script>
+<template>
+Transparent content model
+If an element has a transparent content model, then its contents must be structured such that they would be valid HTML 5, even if the transparent element were removed and replaced by the child elements.
+
+For example, the <del> and <ins> elements are transparent:
+
+<p>We hold these truths to be <del><em>sacred &amp; undeniable</em></del> <ins>self-evident</ins>.</p>
+If those elements were removed, this fragment would still be valid HTML (if not correct English).
+
+<p>We hold these truths to be <em>sacred &amp; undeniable</em> self-evident.</p>
+Other content models
+Sectioning root.
+
+
+
+
+
+2.  Global attributes:
+			List of global attributes:
+			                    1.accesskey
+Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.
+
+					2. autocapitalize
+Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:
+
+off or none, no autocapitalization is applied (all letters default to lowercase)
+on or sentences, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase
+words, the first letter of each word defaults to a capital letter; all other letters default to lowercase
+characters, all letters should default to uppercase
+					3.autofocus
+Indicates that an element is to be focused on page load, or as soon as the <dialog> it is part of is displayed. This attribute is a boolean, initially false.
+
+					4.class
+A space-separated list of the classes of the element. Classes allows CSS and JavaScript to select and access specific elements via the class selectors or functions like the method Document.getElementsByClassName().
+
+					5.contenteditable
+An enumerated attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:
+
+true or the empty string, which indicates that the element must be editable;
+false, which indicates that the element must not be editable.
+					6.contextmenu 
+The id of a <menu> to use as the contextual menu for this element.
+
+					7.data-*
+Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the HTML and its DOM representation that may be used by scripts. All such custom data are available via the HTMLElement interface of the element the attribute is set on. The HTMLElement.dataset property gives access to them.
+
+					8.dir
+An enumerated attribute indicating the directionality of the element's text. It can have the following values:
+
+ltr, which means left to right and is to be used for languages that are written from the left to the right (like English);
+rtl, which means right to left and is to be used for languages that are written from the right to the left (like Arabic);
+auto, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.
+					9.draggable
+An enumerated attribute indicating whether the element can be dragged, using the Drag and Drop API. It can have the following values:
+
+true, which indicates that the element may be dragged
+false, which indicates that the element may not be dragged.
+					10.enterkeyhint
+Hints what action label (or icon) to present for the enter key on virtual keyboards.
+
+					11.exportparts 
+Used to transitively export shadow parts from a nested shadow tree into a containing light tree.
+
+       				12.hidden
+A Boolean attribute indicates that the element is not yet, or is no longer, relevant. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.
+
+					13.id
+Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).
+
+					14.inputmode
+Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <input> elements, but is usable on any element while in contenteditable mode.
+
+					15.is
+Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see Using custom elements for more details).
+
+Note: The item* attributes are part of the WHATWG HTML Microdata feature.
+
+					16.itemid
+The unique, global identifier of an item.
+
+					17.itemprop
+Used to add properties to an item. Every HTML element may have an itemprop attribute specified, where an itemprop consists of a name and value pair.
+
+					18.itemref
+Properties that are not descendants of an element with the itemscope attribute can be associated with the item using an itemref. It provides a list of element ids (not itemids) with additional properties elsewhere in the document.
+
+					19.itemscope
+itemscope (usually) works along with itemtype to specify that the HTML contained in a block is about a particular item. itemscope creates the Item and defines the scope of the itemtype associated with it. itemtype is a valid URL of a vocabulary (such as schema.org) that describes the item and its properties context.
+
+					20.itemtype
+Specifies the URL of the vocabulary that will be used to define itemprops (item properties) in the data structure. itemscope is used to set the scope of where in the data structure the vocabulary set by itemtype will be active.
+
+					21.lang
+Helps define the language of an element: the language that non-editable elements are in, or the language that editable elements should be written in by the user. The attribute contains one “language tag” (made of hyphen-separated “language subtags”) in the format defined in Tags for Identifying Languages (BCP47). xml:lang has priority over it.
+
+					22.nonce
+A cryptographic nonce ("number used once") which can be used by Content Security Policy to determine whether or not a given fetch will be allowed to proceed.
+
+					23.part
+A space-separated list of the part names of the element. Part names allows CSS to select and style specific elements in a shadow tree via the ::part pseudo-element.
+
+					24.slot
+Assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the <slot> element whose name attribute's value matches that slot attribute's value.
+
+					25.spellcheck
+An enumerated attribute defines whether the element may be checked for spelling errors. It may have the following values:
+
+true, which indicates that the element should be, if possible, checked for spelling errors;
+false, which indicates that the element should not be checked for spelling errors.
+					26.style
+Contains CSS styling declarations to be applied to the element. Note that it is recommended for styles to be defined in a separate file or files. This attribute and the <style> element have mainly the purpose of allowing for quick styling, for example for testing purposes.
+
+					27.tabindex
+An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position. It can take several values:
+
+a negative value means that the element should be focusable, but should not be reachable via sequential keyboard navigation;
+0 means that the element should be focusable and reachable via sequential keyboard navigation, but its relative order is defined by the platform convention;
+a positive value means that the element should be focusable and reachable via sequential keyboard navigation; the order in which the elements are focused is the increasing value of the tabindex. If several elements share the same tabindex, their relative order follows their relative positions in the document.
+					28.title
+Contains a text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip.
+
+					29.translate
+An enumerated attribute that is used to specify whether an element's attribute values and the values of its Text node children are to be translated when the page is localized, or whether to leave them unchanged. It can have the following values:
+
+empty string and yes, which indicates that the element will be translated.
+no, which indicates that the element will not be translated.
+
+
+
+
+3.EVENTS:
+
+		Listen to these events using addEventListener() or by assigning an event listener to the oneventname property of this interface.
+
+					1.cancel
+Fires on a <dialog> when the user instructs the browser that they wish to dismiss the current open dialog. For example, the browser might fire this event when the user presses the Esc key or clicks a "Close dialog" button which is part of the browser's UI. Also available via the oncancel property.
+
+					2.error
+Fired when a resource failed to load, or can't be used. For example, if a script has an execution error or an image can't be found or is invalid. Also available via the onerror property.
+
+					3.scroll
+Fired when the document view or an element has been scrolled. Also available via the onscroll property.
+
+					4.select
+Fired when some text has been selected. Also available via the onselect property.
+
+					5.show
+Fired when a contextmenu event was fired on/bubbled to an element that has a contextmenu attribute.  Also available via the onshow property.
+
+					6.wheel
+Fired when the user rotates a wheel button on a pointing device (typically a mouse). Also available via the onwheel property.
+
+					7.securitypolicyviolation
+Fired when a Content Security Policy is violated. Also available via the global onsecuritypolicyviolation property, which available on elements and the Document and Window objects.
+
+CLIPBOARD EVENTS:
+					1.copy
+Fired when the user initiates a copy action through the browser's user interface. Also available via the oncopy property.
+
+					2.cut
+Fired when the user initiates a cut action through the browser's user interface. Also available via the oncut property.
+
+					3.paste
+Fired when the user initiates a paste action through the browser's user interface. Also available via the onpaste property.
+
+COMPOSITION EVENTS:
+					1.compositionend
+Fired when a text composition system such as an input method editor completes or cancels the current composition session.
+
+					2.compositionstart
+Fired when a text composition system such as an input method editor starts a new composition session.
+
+					3.compositionupdate
+Fired when a new character is received in the context of a text composition session controlled by a text composition system such as an input method editor.
+
+FOCUS EVENTS:
+					1.blur
+Fired when an element has lost focus. Also available via the onblur property.
+
+					2.focus
+Fired when an element has gained focus. Also available via the onfocus property
+
+					3.focusin
+Fired when an element is about to gain focus.
+
+					4.focusout
+Fired when an element is about to lose focus.
+
+FULLSCREEN EVENTS:
+					1.fullscreenchange
+Sent to an Element when it transitions into or out of full-screen mode. Also available via the onfullscreenchange property.
+
+					2.fullscreenerror
+Sent to an Element if an error occurs while attempting to switch it into or out of full-screen mode. Also available via the onfullscreenerror property.
+
+KEYBOARD EVENTS:
+					1.keydown
+Fired when a key is pressed. Also available via the onkeydown property.
+
+					2.keypress
+Fired when a key that produces a character value is pressed down.  Also available via the onkeypress property.
+
+					3.keyup
+Fired when a key is released. Also available via the onkeyup property.
+
+MOUSE EVENTS:
+					1.auxclick
+Fired when a non-primary pointing device button (e.g., any mouse button other than the left button) has been pressed and released on an element. Also available via the onauxclick property.
+
+					2.click
+Fired when a pointing device button (e.g., a mouse's primary button) is pressed and released on a single element. Also available via the onclick property.
+
+					3.contextmenu
+Fired when the user attempts to open a context menu. Also available via the oncontextmenu property.
+
+					4.dblclick
+Fired when a pointing device button (e.g., a mouse's primary button) is clicked twice on a single element. Also available via the ondblclick property.
+
+					5.DOMActivate 
+Occurs when an element is activated, for instance, through a mouse click or a keypress.
+
+					6.mousedown
+Fired when a pointing device button is pressed on an element. Also available via the onmousedown property.
+
+					7.mouseenter
+Fired when a pointing device (usually a mouse) is moved over the element that has the listener attached. Also available via the onmouseenter property.
+
+					8.mouseleave
+Fired when the pointer of a pointing device (usually a mouse) is moved out of an element that has the listener attached to it. Also available via the onmouseleave property.
+
+					9.mousemove
+Fired when a pointing device (usually a mouse) is moved while over an element. Also available via the onmousemove property.
+
+					10.mouseout
+Fired when a pointing device (usually a mouse) is moved off the element to which the listener is attached or off one of its children. Also available via the onmouseout property.
+
+					11.mouseover
+Fired when a pointing device is moved onto the element to which the listener is attached or onto one of its children. Also available via the onmouseover property.
+
+					12.mouseup
+Fired when a pointing device button is released on an element. Also available via the onmouseup property.
+
+					13.webkitmouseforcechanged
+Fired each time the amount of pressure changes on the trackpadtouchscreen.
+
+					14.webkitmouseforcedown
+Fired after the mousedown event as soon as sufficient pressure has been applied to qualify as a "force click".
+
+					15.webkitmouseforcewillbegin
+Fired before the mousedown event.
+
+					16.webkitmouseforceup
+Fired after the webkitmouseforcedown event as soon as the pressure has been reduced sufficiently to end the "force click".
+
+TOUCH EVENTS:
+					1.touchcancel
+Fired when one or more touch points have been disrupted in an implementation-specific manner (for example, too many touch points are created). Also available via the ontouchcancel property.
+
+					2.touchend
+Fired when one or more touch points are removed from the touch surface. Also available via the ontouchend property
+
+					3.touchmove
+Fired when one or more touch points are moved along the touch surface. Also available via the ontouchmove property
+
+					4.touchstart
+Fired when one or more touch points are placed on the touch surface. Also available via the ontouchstart property
+
+
+
+
+
+
+						INLINE ELEMENTS and BLOCK ELEMENTS:
+						
+	1. Block-level Elements:
+		A block-level element always starts on a new line.
+		A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+		A block level element has a top and a bottom margin, whereas an inline element does not.
+		The <div> element is a block-level element.
+	   
+	    EX:
+	    1.<address> 		7.<div>
+	    2. <article>		8.<fieldset>
+	    3. <aside>			9. <figcaption>
+	    4. <blockquote>		10. <figure>
+	    5. <canvas>		11.<footer>
+	    6. <dd><dl><dt><form>	12. <h1>-<h6>
+	    13. <header>		18. <noscript>
+	    14. <hr>			19. <ol>
+	    15. <li>			20. <p>
+	    16. <main>			21. <pre>
+	    17. <nav>			22. <section>
+	    23. <table>		24. <tfoot>
+	    25. <ul>
+	    
+	 2. Inline Elements:
+	 		An inline element does not start on a new line.
+	 		An inline element only takes up as much width as necessary.
+			This is a <span> element inside a paragraph.
+	      EX:
+	      	1.<a>			11. <em>
+	      	2. <abbr>		12. <i>
+	      	3. <b>			13. <img>
+	      	4. <bdo>		14. <input>
+	      	5. <big>		15. <kbd>
+	      	6. <br>		16. <label>
+	      	7. <button>		17. <map>
+	      	8. <cite>		18. <object>
+	      	9. <code>		19. <output>
+	      	10. <dfn>      	20. <q>
+	      	21. <samp>		22. <script>
+	      	23. <select>		24. <small>
+	      	25. <span>		26. <strong>
+	      	27. <sub>		28. <sup>
+	      	29. <textarea>		30. <time>
+	      	31. <tt>		31. <var>
+	
+	3. Empty Elements:
+		A standard element in HTML has content enclosed within opening and closing tags, but some are empty (void).
+		Such elements are mostly used to add or embed content into documents:
+		
+	      EX:
+	         1.<area>		9.<input>
+	         2. <base> 		10. <keygen>
+	         3.<br>		11.<link>
+	         4.<col>		12. <param>
+	         5.<embed>		13. <source>
+	         6.<hr>		14. <track>
+	         7.<img>		15.<wbr>
+	         8.<meta>	
+	4. Optional Closing Tags:
+		In some cases, the closing tag is optional: you can add it or skip it. 
+		Adding optional closing tags can make HTML code easier to follow and understand. 
+		However, sometimes, the use of such tags can be redundant.
+	      EX:
+	      	1.<html>		10.<th>
+	      	2.<head>		11. <tbody>
+	      	3.<body>		12. <tr>
+	      	4.<p>			13. <td>
+	      	5.<dt>			14. <tfoot>
+	      	6.<dd>			15. <colgroup>
+	      	7.<li>
+	      	8.<option>	
+	      	9.<thead>	
+	   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HTML TAGS:
+
+
+1. <html lang="lang code">:
+ 				Hebrew-he
+ 				Hindi  -hi
+ 				Malayalam - ml
+ 				Marathi   - mr
+ 				Telugu	  - te
+ 			
+2. <head> : 
+		a) <title>
+		b)<meta>: Metadata is data that describes data:
+		    attributes: 
+		    		<meta charset="UTF-8", ""ASCII", "ANSI" , "ISO-8859-1"> character encoding
+		    		<meta name="author" content="author name Mohan">
+		    		<meta name="description" content="description about the page max 2 lines only">
+		    		<meta name="keywords" contents="fill, in, your keywords">
+		    		<meta property="og:image" content="image address">
+		    		<meta property="og:description" content="description about">
+		    		<meta property="og:title" content="title of your page"> 
+		    		
+		c)<link>-- used to add custom icons to your site:
+			attributes: 
+				  <link rel="icon" href="eagleicon.ico" sizes="114x114" type="image/x-icon"> == for giving static icon
+				  <link rel="icon" href="https://media.istockphoto.com/vectors/eagle-icon-vector-id904421138" type="image/x-ico"> == 																	    for giving dynamic icon
+				  <link rel="stylesheet" href="my-css-file.css">  == used for applying external style sheet
+3. TEXT TYPES & Related tags:
+		A. Headings:    <h1>.... <h6>
+		B. Paragraph:   <p> your paragraph data </p>
+		C. Text Formatting Tags:
+			1.bold-<b>				2.italic - <i>	
+		        3.underline - <u>  			4. Strong - <strong>
+		        5. Emphasized - <em>  		6. Marked - <mark>
+		        7. Small  - <small>			8. deleted - <del>
+		        9. inserted - <ins>			10. Strike - <strike>
+		        11. Subscript - <sub>			12. Superscript - <sup>
+		        13. MONOSPACED - <tt></tt>		14. BIG - <big> </big>
+		        15. QUOTES (inline quotes) - <q>	
+		        16. BLOCKQUOTES -- <blockquote> :
+		        		The <blockquote> tag specifies a section that is quoted from another source.
+		        		Browsers usually indent <blockquote> elements.
+		        		element indicates that the enclosed text is an extended quotation.
+		        		Usually, this is rendered visually by indentation 
+		        	attributes: 
+		        		cite: specifies the source of the quotation.
+		        		
+		        		EX: 
+		        		     <blockquote cite="https://www.huxley.net/bnw/four.html">
+		        			<p>Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re 								pierced.</p>
+		        		     </blockquote>
+		        		     
+		        17. ADDRESS  -<address>:
+		        	The <address> tag defines the contact information for the author/owner of a document or an article.
+				The contact information can be an email address, URL, physical address, phone number, social media handle, etc.
+				The text in the <address> element usually renders in italic, and browsers will always add a line break before and after 										the <address> element.
+			
+	      	D.  Escape Sequences:
+	      		The escape sequences are characters which are used to display the characters which are used by HTML as control sequences.
+			 1)&amp  -----------> This escape sequence  is used for “&” symbol.
+			 2)&lt        ---------->less than(<)
+			 3)&st       ---------->greater than(>)
+			 4)&quot  ---------->(“   “)
+			 5)&nbsp  ---------->empty space
+			 6)&copy  ---------->copy
+			
+		E.GROUPING CONTENTS:
+		    The "DIV" <div> and "SPAN" <span> elements allow you to group together several elements to create sections or subsections of a page.
+			1. <div>:  
+				The <div> element should be used only when no other semantic element (such as <article> or <nav>) is appropriate.
+				The <div> tag is used as a container for HTML elements - which is then styled with CSS or manipulated with JavaScript.
+				By default, browsers always place a line break before and after the <div> element.
+			2. <span>:
+				The <span> tag is an inline container used to mark up a part of a text, or a part of a document.
+				The <span> tag is easily styled by CSS or manipulated with JavaScript using the class or id attribute.
+				The <span> tag is much like the <div> element, but <div> is a block-level element and <span> is an inline element.
+				
+		F. Advanced Text Formatting:
+		
+			A. Description Lists:
+				The <dl> tag defines a description list.
+				The <dl> tag is used in conjunction with <dt> (defines terms/names) and <dd> (describes each term/name).
+			    EX:
+			    	<dl>
+			    	  <dt>Coffee</dt>
+			    	    <dd>Black hot drink</dd>
+			    	   <dt>Milk</dt>
+				    <dd>White cold drink</dd>
+				 </dl>			    
+			O/P: 
+				Coffee
+				     Black hot drink
+				Milk
+				     White cold drink
+		
+		
+		
+			1.CODE <code> tag: 
+				is used to define a piece of computer code. The content inside is displayed in the browser's default monospace font.
+			EX: 
+				<p>The HTML <code>button</code> tag defines a clickable button.</p>
+				<p>The CSS <code>background-color</code> property defines the background color of an element.</p>
+				
+			2. SAMPLE <samp> tag:
+                 		 is used to define sample output from a computer program. 
+                 		 The content inside is displayed in the browser's default monospace font.
+                  	EX:
+                  		<h1>The samp element</h1>
+				<p>Message from my computer:</p>
+				<p><samp>File not found.<br>Press F1 to continue</samp></p>
+				
+			3. KEYBOARD <kbd> tag:
+				is used to define keyboard input. The content inside is displayed in the browser's default monospace font.
+			EX:
+				<h1>The kbd element</h1>
+				<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy text (Windows).</p>
+				<p>Press <kbd>Cmd</kbd> + <kbd>C</kbd> to copy text (Mac OS).</p>
+				
+			4. VAR <var> tag:
+				The <var> element is used to identify a variable in a mathematical equation or computer program. 
+				Text marked with <var> tags is displayed in an italics font style by most browsers.
+			EX: 
+		   		 <p>The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the 						vertical height.</p>
+		   		 
+		   	5. Abbrevation <abbr> tag:
+			    	attributes:
+			    		 1.title: fullform of that abbrevation EX: <p> abbrevation <abbr title="mohanphani">MP</abbr> fullform</p>
+			    
+			 6.Mirrored Text <bdi> tag:
+			 	it allows creating mirrored text.It means that the text will be written from right to left.
+			 	 It is very useful when writing in languages such as Arabic, or simply adding some whimsicality:
+				EX:
+					<h2><bdi>مرحبا بالعالم</bdi> That means Hello World in Arabic.</h2>
+					
+			7. Cite <cite> tag:
+				The <cite> tag defines the title of a creative work (e.g. a book, a poem, a song, a movie, a painting, a sculpture, etc.).
+				Note: A person's name is not the title of a work.
+				The text in the <cite> element usually renders in italic.
+			      EX 1:
+			      	  <img src="img_the_scream.jpg" width="220" height="277" alt="The Scream">
+				  <p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+			      EX 2:
+			      	   <p>According to the <a href="/en-US/docs/Web/HTML/Element/blockquote">
+					<cite>MDN blockquote page</cite></a>:</p>
+				  
+
+
+			
+		
+		
+4. Main Tags: 
+
+      I.TAGS: <header>, <nav>, <main>, <article>, <aside>, <section>, <footer>
+	 a. HEADER tag: 
+	             it represents introductory content, typically a group of introductory or navigational aids. 
+	             It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+	 b. FOOTER tag:
+	 	    it represents a footer for its nearest sectioning content or sectioning root element.
+	 	    it typically contains information about the author of the section, copyright data or links to related documents.
+	 c. ARTICLE tag:
+	 	     The article element represents a section of content that forms an independent part of a document or site; for example, a magazine or 														          newspaper article, or a blog entry.
+	 d. MAIN tag: 
+	 	landmark and skip navigation should not be in main tag.
+	 	The <main> HTML element represents the dominant content of the <body> of a document. 
+	 	The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central 																functionality of an application.
+	 e.NAV tag:	
+	 	the new <nav> element describes a special space for navigation links on your website.
+	 
+	 
+	 f. SECTION tag: 
+	 	is used to set a part of the content for one section element: 
+	 
+	 
+	 g. DETAILS & SUMMARY Tag:
+	 	 1. <details>: 
+        		this element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state.
+        		A summary or label (label to this expander) must be provided using the <summary> element.	
+        		this is like "EXPANDER" in wpf.
+        	
+        	    attribute: 
+        	            1.open:   this will opens the expander. 
+        	            
+        	          EX:	
+        	    <details open>
+        	         <summary>Details</summary>
+				    Something small enough to escape casual notice.
+		    </details>
+		  
+	          2. <summary>:
+	 		defines a visible heading for the <details> element. The heading can be clicked to view/hide the details.
+	 		Note: The <summary> element should be the first child element of the <details> element.     
+	 	
+	 		
+      II .HTML Layout Elements:HTML has several semantic elements that define the different parts of a web page:
+      	
+      		HTML5 Semantic Elements:
+      			<header> - Defines a header for a document or a section
+			<nav> - Defines a set of navigation links
+			<section> - Defines a section in a document
+			<article> - Defines an independent, self-contained content
+			<aside> - Defines content aside from the content (like a sidebar)
+			<footer> - Defines a footer for a document or a section
+			<details> - Defines additional details that the user can open and close on demand
+			<summary> - Defines a heading for the <details> element
+	 		
+    
+		
+
+	
+5.HYPER LINKS : <a>-- anchor tag
+		 A URL can point to HTML files, text files, images, text documents, video and audio files, or anything else that lives on the Web.
+	     -- you can also include anchor tag inside an "<img>" tag
+		
+	attributes: 						  
+		a.href: used to link to a  1.website: <a href="https://en.wikipedia.org/wiki/HTML"> HTML wikipedia </a>
+					  2. Directory/file: <a href="page2.html">Page2</a>
+					  3. element of the same page: <a title="Mohan" href="#exforanchor"> Element Linking </a>
+					  4. Mail : 	<a href="mailto:sample@gmail.com"> mailing </a><br>
+				SPECIfying details: CC,BCC: mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&subject=This%20is%20the%20subject
+					  5. telephone number: <a href="tel:+919515789565">+91 9515789565</a><br>
+		b.download: 
+			Directs the browser to download the linked resource rather than opening it.
+		c.Ping: 
+		      The ping attribute specifies a list of URLs to be notified if the user follows the hyperlink.
+		  EX--    <a href="https://www.w3schools.com/html" ping="https://www.w3schools.com/trackpings">
+		d. type:
+		        specifies the type of the tag
+
+		e. target:
+		         1. "_self" -- link will be opened in the same tab
+		         2. "_home"/ "_blank" -- link will be opened in another/new tab
+		         3. "_parent"  -- Opens the linked document in the parent tab
+		         4. "_top"  -- Opens the linked document in the full body of the window
+		
+		f. title: Defines the title of a link, which appears to the user as a tooltip. 
+		g.alternate: Defines a hyperlink to a page describing the author or providing a way to contact the author.
+		h. external: Indicates that the hyperlink leads to a resource outside the site of the current page; that is, following the link will make 						the user leave the site.
+		i. tag : Indicates that the hyperlink refers to a document describing a tag that applies to this document.
+		
+
+. Images: 
+
+
+. LISTS:
+		1. Unordered List <ul> tag:
+						 Unordered lists are used to mark up lists of items for which the order of the items doesn't matter.
+				attributes:
+		2. Ordered List <ol> tag:
+					attributes: a. type="I,i,a,A,1"
+						     b. start: 
+						     		By default, an ordered list will start counting from 1. If you want to start counting from 										a specified number, you can use the start attribute
+						        EX: <ol start="50">				 output:
+								<li>Coffee</li>				50. Coffee
+  								<li>Tea</li>					51. Tea
+  								<li>Milk</li>					52. Milk	    
+							      </ol>
+						     c.
+						     
+		3. Description List <dl> tag:
+					Inner Tags: <dt> description term:
+						    <dd> description data:
+						    
+		    Ex: <dl>
+		         <dt>soliloquy</dt>
+  				<dd>In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process 							relaying them to the audience (but not to other characters.)</dd>
+  			 <dt>monologue</dt>
+  				<dd>In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters 							present.</dd>
+  			 <dt>aside</dt>
+  				<dd>In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a 						feeling, thought, or piece of additional background information.</dd>
+  			  </dl>
+  		  output:
+  			soliloquy
+				In drama, where a character speaks to themselves, representing their inner thoughts or feelings and in the process 						relaying them to the audience (but not to other characters.)
+			monologue
+				In drama, where a character speaks their thoughts out loud to share them with the audience and any other characters 							present.
+			aside
+				In drama, where a character shares a comment only with the audience for humorous or dramatic effect. This is usually a 								feeling, thought, or piece of additional background information.
+
+				REPRESENTING COMPUTER CODE: 
+				
+           There are a number of elements available for marking up computer code using HTML:				
+8. 
+				
+9. 
+			
+10. 
+			
+11. PRE <pre> tag:
+			defines preformatted text.Text in a <pre> element is displayed in a fixed-width font, and the text preserves both spaces and line 			breaks. The text will be displayed exactly as written in the HTML source code.
+			EX:
+			   <h2>Standard pre</h2>
+			   <pre>This is a standard pre. It will use as much space as it needs.</pre>
+			   <h2>Fixed width pre</h2>
+			   <pre style="width:200px;overflow:auto">This is a pre with a fixed width. It will use as much space as specified.</pre>
+
+12. 
+
+                  
+9. <dialog> tag:  defines the dialog box in your website:
+10. <figure> tag:  tag sets space for isolated content, such as photos, diagrams, etc. 
+		   To define a caption for a <figure> element, use the <figcaption> element:
+		 EX:
+		    <figure>
+		     		<figcaption>Dog</figcaption>
+		     		<img src="image.png" alt="The Bread Dog" width="300" height="300">
+		    </figure>	
+		   	
+		   
+11. CITE <cite> tag:
+12. 			    
+13. Definition <dfn> tag:
+			The <dfn> HTML element is used to indicate the term being defined within the context of a definition phrase or sentence.
+	
+	
+. Progress Bar <progress> tag:
+			defines a progress bar for a task, which is included on your web page:
+		  EX:
+		  	<p>Donuts eaten:</p>
+		  	<progress value="60" max="100"></progress>	
+		  	
+. Meter tag <meter> tag:
+			element depicts a scalar measurement in a defined range on your website.
+		  EX: 
+		  	<p>Karma points: <meter optimum="30" high="80" max="100" value="85">85%</meter></p>
+			<p>Gas in Tanker: <meter low="20" max="100" value="11">11%</meter></p>
+			<p>Animals Petted: <meter low="10" high="60" min="0" max="50" value="43" title="Animals">Petting</meter></p>
+			<p>Satisfaction: <meter max="100" optimum="100" value="100">100%</meter></p>
+			
+			
+			
+14. <iframe> tag: 
+		  The <iframe> tag specifies an inline frame.An inline frame is used to embed another document within the current HTML document.
+		attributes: 1. src: url of the webpage/site
+			     2. title: title of webpage/site
+			     3. loading
+			     4. allowfullscreen	
+			     5. sandbox
+			     6. srcdoc
+			     7. height, width
+			     8. referrerpolicy
+			     
+15. TIME <time> tag:
+		     this element represents a specific period in time.it may include the datetime attribute to translate dates into machine-readable 			     format, allowing for better search engine results or custom features such as reminders.
+		    EX:
+		    <p>The Cure will be celebrating their 40th anniversary on <time datetime="2018-07-07">July 7</time> in London's Hyde Park.</p>
+<p>The concert starts at <time datetime="20:00">20:00</time> and you'll be able to enjoy the band for at least <time datetime="PT2H30M">2h 30m</time>.</p>
+
+			
+				
